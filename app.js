@@ -16,7 +16,7 @@ app.set('view engine' , 'ejs');
 app.use(router);
 
 app.get('/' , (req , res) => {
-    res.redirect('/home');
+    res.redirect('/loginform');
 })
 
 

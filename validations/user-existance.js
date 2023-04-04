@@ -16,6 +16,25 @@ exports.exist = (req, res , next) => {
             next();
         }
     })
+}
+
+
+
+exports.loginData = (req, res , next) => {
+
+    let {user_name , password} = req.body;
+
+    connection.query(`SELECT user_name , password FROM register WHERE user_name = ? AND password = ?` , [user_name , password] , (err , result) => {
+
+
+        if(err) throw err;
+        console.log(result)
+        if(result.length == 0){
+            res.redirect('/')
+        }else{
+            next();
+        }
+    })
 
 
 }
